@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPSC</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button class="start" id="start">Start!</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="wrapper" class="hidden">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 justify-content-center">
+                    <div class="card card1">
+                        <div class="card-body" id="playerChoice">
+                            <h4 id="player"></h4>
+                            <img src="" id="playerImg" class="player">
+                            <br>
+                            <label>Choose Your Weapon!</label>
+                            <br>
+                            <div id="weapons">
+                               
+                                    <img src="images/Rock.jpg" alt="rock" class="weapon" id="rock">
+                               
+                                
+                                    <img src="images/paper.jpg" alt="paper" class="weapon" id="paper">
+                                
+                                
+                                    <img src="images/scissor.jpg" alt="scissor" class="weapon" id="scissor">
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <button class="start" id="shoot">3 2 1 Shoot!</button>
+                    <h3><span id="result" style="color:red"></span></h3>
+                </div>
+            
+            <br>
+            
+                <div class="col-4 justify-content-center">
+                    <div class="card card2" id="opCard">
+                        <div class="card-body" id="opChoice">
+                            <h4 id="opponent"></h4>
+                            <img src="" id="opponentImg" class="player">
+                            <br>
+                            <div><img src="images/Rock.jpg" alt="rock" id="opWeapon" class="weapon"></div>
+                            <!-- <br>
+                            <h4>Round: <span id='round'></span></h4>
+                            <br>
+                            <h4>Wins: <span id="wins"></span></h4>
+                            <br>
+                            <h4>Loses: <span id="loses"></span></h4>
+                            <br>
+                            <h4>Tie: <span id="tie"></span></h4> -->
+                        </div>
+                    </div>
+                    <button class="start hidden" id="nextOp">Next Challenger</button>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="logic.js"></script>
+
+</body>
+
+</html>
