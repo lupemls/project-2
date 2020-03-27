@@ -4,14 +4,14 @@ $(document).ready(function () {
     const opponentAdj = ['DEADLY', 'MERCILESS', 'ABOMINABLE', 'LETHAL', 'BRUTAL'];
     const playerAdj = ['SWIFT', 'CUNNING', 'STOIC', 'BRAVE', 'BOLD'];
 
-
+    
     let wins = 0;
     let ties = 0;
     let loses = 0;
 
     let round = 1;
     let srcChange;
-
+    let currentOp;
 
     const randoAdj = Math.floor(Math.random() * (playerAdj.length));
 
@@ -37,7 +37,7 @@ $(document).ready(function () {
         })
             .then(function (response) {
                 // console.log(response);
-
+                currentOp = response.id
 
                 $.ajax({
                     url: `https://api.github.com/users/${response.github}`,
@@ -52,6 +52,24 @@ $(document).ready(function () {
             });
 
     };
+
+    function winIncrementOp(){
+        $.ajax({
+            url: '/api/winincrement',
+            data: {id: currentOp},
+            method: 'put'
+        })
+    };
+
+    function lossIncrementOp(){
+        $.ajax({
+            url: '/api/lossincrement',
+            data: {id: currentOp},
+            method: 'put'
+        })
+    };
+
+
 
     function nudgeRight() {
         $('#opponentImg').animate({
@@ -76,7 +94,7 @@ $(document).ready(function () {
         $('#result').show()
         $('#result').text('WIN!');
 
-        console.log('test')
+        lossIncrementOp()
         $('#result').fadeOut(2000);
 
     };
@@ -85,7 +103,7 @@ $(document).ready(function () {
         $('#result').show()
         $('#result').text('LOSE!');
 
-        console.log('test')
+        winIncrementOp()
         $('#result').fadeOut(2000);
 
     };
@@ -94,7 +112,7 @@ $(document).ready(function () {
         $('#result').show()
         $('#result').text('TIE!');
 
-        console.log('test')
+        
         $('#result').fadeOut(2000);
 
     };
@@ -129,7 +147,7 @@ $(document).ready(function () {
     };
 
     function nextOp() {
-        $('#opCard').fadeOut('slow', function () { $('#nextOp').show('fast') })
+        $('#opCard').fadeOut(2500, function () { $('#nextOp').show('fast') })
         round = 1;
         wins = 0;
         loses = 0
@@ -201,6 +219,7 @@ $(document).ready(function () {
         
     };
 
+
     statsView()
 
 
@@ -219,7 +238,7 @@ $(document).ready(function () {
         randoWeapon()
         game()
 
-        $('#shoot').hide('fast').delay(3000).show('fast', function () { carousel() });
+        $('#shoot').hide('fast').delay(2000).show('fast', function () { carousel() });
 
         statsView()
     });

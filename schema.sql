@@ -1,3 +1,6 @@
+DROP DATABASE IF EXISTS rps_db;
+
+CREATE DATABASE blogger;
 
 use rps_db;
 

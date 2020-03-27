@@ -4,7 +4,7 @@ var db = require("../models");
 
 
 module.exports = function(app) {
-  // Get all liked songs where the userid in the database matches the userid param. Include a join from the 'users' table so we have a grab on the foreign/primary keys. This is not used in MVP, but it's necessary for future features.
+ 
   
 //Post - user info/github account
 //Post - getting info out of opponents table
@@ -16,13 +16,31 @@ module.exports = function(app) {
   app.get('/api/randomopponent', function(req, res) {
     db.Opponent.findOne({order: db.sequelize.random()}).then(result => {
       res.json(result);
-      console.log(result);
+      
     })
 
-    // db.Opponent.findAll({}).then((result) => {
-    //   console.log(a, result);
-    // })
+  
   });
+
+  app.put('/api/winincrement', function(req, res) {
+    const currentOp = req.body.id;
+    console.log('testing', currentOp);
+
+    db.Opponent.increment('wins', { by: 1, where: { id: currentOp}});
+    res.send('done')
+  });
+
+  app.put('/api/lossincrement', function(req, res) {
+    const currentOp = req.body.id;
+    console.log('testing', currentOp);
+
+    db.Opponent.increment('losses', { by: 1, where: { id: currentOp}});
+    res.send('done')
+  });
+
+  // app.put('/api/lossesincrement', function(req, res) {
+
+  // })
 
   // app.get("/api/rankboard/:id", function(req, res) {
   //   db.Users.findAll({
