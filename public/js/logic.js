@@ -1,6 +1,5 @@
 $(document).ready(function () {
     const weapons = [{ src: 'images/Rock.jpg', alt: 'rock' }, { src: 'images/paper.jpg', alt: 'paper' }, { src: 'images/scissor.jpg', alt: 'scissor' }];
-    const accounts = ['VioletShirokuma', 'onijimbo', 'lupemls', 'greiven'];
     const opponentAdj = ['DEADLY', 'MERCILESS', 'ABOMINABLE', 'LETHAL', 'BRUTAL'];
     const playerAdj = ['SWIFT', 'CUNNING', 'STOIC', 'BRAVE', 'BOLD'];
 
@@ -15,9 +14,12 @@ $(document).ready(function () {
 
     const randoAdj = Math.floor(Math.random() * (playerAdj.length));
 
-    function playerCall() {
+    //Will change the name and image to a users github name and github image, leaving it blank if they input a nonexistant account
+    async function playerCall() {
+        const gitName = await getGit();
+        console.log('It actually says', gitName);
         $.ajax({
-            url: `https://api.github.com/users/${accounts[3]}`,
+            url: `https://api.github.com/users/${gitName}`,
             method: 'get'
         })
             .then(function (response1) {
@@ -25,6 +27,16 @@ $(document).ready(function () {
                 $('#playerImg').attr({ 'src': response1.avatar_url });
             });
     };
+
+    //retrieves the GitHub username that the user input when signing up
+    async function getGit() {
+        let gitName;
+        const gitData = await $.ajax({
+            url: `/api/user_data`,
+            method: 'get'
+        })
+        return gitData.github;
+    }
 
     playerCall()
 
@@ -53,6 +65,7 @@ $(document).ready(function () {
 
     };
 
+    //increases win count on a win
     function winIncrementOp(){
         $.ajax({
             url: '/api/winincrement',
@@ -61,6 +74,7 @@ $(document).ready(function () {
         })
     };
 
+    //increases loss count on a loss
     function lossIncrementOp(){
         $.ajax({
             url: '/api/lossincrement',
@@ -70,7 +84,7 @@ $(document).ready(function () {
     };
 
 
-
+    
     function nudgeRight() {
         $('#opponentImg').animate({
             marginLeft: '+=3em'

@@ -3,30 +3,34 @@ $(document).ready(function() {
   var signUpForm = $("form.signup");
   var usernameInput = $("input#username-input");
   var passwordInput = $("input#password-input");
+  var githubInput = $("input#github-input");
 
   // When the signup button is clicked, we validate the username and password are not blank
   signUpForm.on("submit", function(event) {
     event.preventDefault();
     var userData = {
       username: usernameInput.val().trim(),
-      password: passwordInput.val().trim()
+      password: passwordInput.val().trim(),
+      github: githubInput.val().trim()
     };
 
-    if (!userData.username || !userData.password) {
+    if (!userData.username || !userData.password || !userData.github) {
       return;
     }
     // If we have an username and password, run the signUpUser function
-    signUpUser(userData.username, userData.password);
+    signUpUser(userData.username, userData.password, userData.github);
     usernameInput.val("");
     passwordInput.val("");
+    githubInput.val("");
   });
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpUser(username, password) {
+  function signUpUser(username, password, github) {
     $.post("/api/signup", {
       username: username,
-      password: password
+      password: password,
+      github: github
     })
       // eslint-disable-next-line no-unused-vars
       .then(function(data) {
@@ -38,7 +42,7 @@ $(document).ready(function() {
 
   function handleLoginErr(err) {
     console.log(err);
-    $("#alert .msg").text("Username is already in use");
+    $("#alert .msg").text(err.responseJSON.name);
     $("#alert").fadeIn(500);
   }
 });

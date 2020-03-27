@@ -20,7 +20,8 @@ module.exports = function(app) {
   app.post("/api/signup", function(req, res) {
     db.User.create({
       username: req.body.username,
-      password: req.body.password
+      password: req.body.password,
+      github: req.body.github
     })
       .then(function() {
         res.redirect(307, "/api/login");
@@ -46,8 +47,31 @@ module.exports = function(app) {
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         username: req.user.username,
-        id: req.user.id
+        id: req.user.id,
+        github: req.user.github
       });
     }
+  });
+
+  app.get('/api/randomopponent', function(req, res) {
+    db.Opponent.findOne({order: db.sequelize.random()}).then(result => {
+      res.json(result);
+    })
+  });
+
+  app.put('/api/winincrement', function(req, res) {
+    const currentOp = req.body.id;
+    console.log('testing', currentOp);
+
+    db.Opponent.increment('wins', { by: 1, where: { id: currentOp}});
+    res.send('done')
+  });
+
+  app.put('/api/lossincrement', function(req, res) {
+    const currentOp = req.body.id;
+    console.log('testing', currentOp);
+
+    db.Opponent.increment('losses', { by: 1, where: { id: currentOp}});
+    res.send('done')
   });
 };

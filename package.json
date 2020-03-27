@@ -14,14 +14,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
     "bcryptjs": "2.4.3",
     "express": "^4.17.0",
     "express-session": "^1.16.1",
+    "mysql": "^2.18.1",
     "mysql2": "^1.6.5",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^5.8.6"
+    "sequelize": "^5.8.6",
+    "sequelize-cli": "^5.5.1"
   },
   "devDependencies": {
     "chai": "^4.1.2",
@@ -32,12 +33,5 @@
     "eslint-plugin-prettier": "^2.6.2",
     "mocha": "^5.2.0",
     "prettier": "^1.13.7"
-=======
-    "express": "^4.17.1",
-    "mysql": "^2.18.1",
-    "mysql2": "^2.1.0",
-    "sequelize": "^5.21.5",
-    "sequelize-cli": "^5.5.1"
->>>>>>> 952c57b81d40a465f9dac9af7a2aef09f4e054f6
   }
 }
