@@ -1,0 +1,61 @@
+body{
+    background-color: black;
+}
+
+.start{
+    padding: 15px;
+    border: blue;
+    border-radius: 5px;
+    color: white;
+    background-color: orange;
+}
+
+.hidden{
+    display: none;
+}
+
+.player{
+    border-radius: 50%;
+    width: auto;
+    height: 75px;
+}
+
+.weapon{
+    height: 150px;
+    width: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    
+}
+
+.selected{
+    height: 150px;
+    width: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding:1px;
+    border:3px solid orange;
+}
+
+.card1{
+    background-color: gray;
+    text-align: center;
+}
+
+.card2{
+    background-color: blue;
+    text-align: center;
+}
+
+/* #opImg{
+    margin-left: 3em;
+    display: block;
+} */
+
+/* @include media-breakpoint-up(md) {
+    .name {
+      font-size: 1.4rem;
+    }
+  } */
