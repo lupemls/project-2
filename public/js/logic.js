@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    const weapons = [{ src: 'images/Rock.jpg', alt: 'rock' }, { src: 'images/paper.jpg', alt: 'paper' }, { src: 'images/scissor.jpg', alt: 'scissor' }];
+    const weapons = [{ src: 'images/rock.png', alt: 'rock' }, { src: 'images/paper.png', alt: 'paper' }, { src: 'images/scissors.png', alt: 'scissor' }];
     const opponentAdj = ['DEADLY', 'MERCILESS', 'ABOMINABLE', 'LETHAL', 'BRUTAL'];
     const playerAdj = ['SWIFT', 'CUNNING', 'STOIC', 'BRAVE', 'BOLD'];
 
