@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Landing Page</title>
+    <!-- BOOTSTRAP CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- FONT AWESOME -->
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="stylesheets/form-style.css">
+</head>
+
+<body>
+
+    <header class="container">
+        <div class="row">
+            <div class="col-sm-12 my-4">
+                <a href="index.html mt-4">
+                    <!--  Place for the logo in other pages. <img src="img/logo.png" class="logo"> -->
+                </a>
+                <h1 class="text-center display-3 font-weight-bold mt-4">R-P-S Kombat</h1>
+            </div>
+            <div class="col-sm-5">
+                <img src="images/mainlogo.svg" class="img-fluid">
+            </div>
+            <div class="col-sm-7 text-center my-5">
+                <!-- <p class="text-center text-description">text goes here</p> -->
+                <!-- <form action="index.html">
+                    <input class="form-control rounded-0 my-4 text-center" type="user" name="Write your user name"
+                        placeholder="USER NAME">
+                    <button type="submit" class="btn btn-light btn-outline rounded-4">
+                        ENTER
+                    </button>
+                </form> -->
+                <h2>Sign Up Form</h2>
+        <form class="signup">
+          <div class="form-group">
+            <label for="exampleInputUsername1">Username</label>
+            <input type="text" class="form-control" id="username-input" placeholder="Username">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="password-input" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputGitHub1">GitHub Username</label>
+            <input type="text" class="form-control" id="github-input" placeholder="GitHub Username">
+          </div>
+          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span> <span class="msg"></span>
+          </div>
+          <button type="submit">Sign Up</button>
+        </form>
+        
+        <p>Or log in <a href="/login">here</a></p>
+               
+        
+                </ul>
+            </div>
+        </div>
+    </header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/signup.js"></script>
+  
+</body>
+
+</html>
