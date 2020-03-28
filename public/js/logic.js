@@ -23,6 +23,7 @@ $(document).ready(function () {
             method: 'get'
         })
             .then(function (response1) {
+                
                 $('#player').text(`${response1.login} THE ${playerAdj[randoAdj]}`);
                 $('#playerImg').attr({ 'src': response1.avatar_url });
             });
@@ -35,6 +36,9 @@ $(document).ready(function () {
             url: `/api/user_data`,
             method: 'get'
         })
+        
+           
+        
         return gitData.github;
     }
 
@@ -169,10 +173,7 @@ $(document).ready(function () {
 
     // displays wins and loses amount
     function statsView() {
-        $('#round').text(round);
-        $('#wins').text(wins);
-        $('#loses').text(loses);
-        $('#tie').text(ties);
+       
     };
 
 

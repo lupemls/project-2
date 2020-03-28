@@ -28,4 +28,8 @@ values("alexshanless",0,0,current_timestamp(), current_timestamp());
 insert into opponents(github, wins, losses, createdAt, updatedAt)
 values("chrismw7579",0,0,current_timestamp(), current_timestamp());
 
+
+insert into opponents(github, wins, losses, createdAt, updatedAt)
+values("bduimstra",0,0,current_timestamp(), current_timestamp());
+
 select * from opponets;

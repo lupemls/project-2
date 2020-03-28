@@ -106,6 +106,17 @@ h4{
     border:3px solid orange;
 }
 
+#playerInfo{
+    color: rgb(207, 255, 193);
+    font-family: 'Press Start 2P', cursive;
+}
+
+#playerimage1{
+    height: 150px;
+    width: 140px;
+    margin-bottom: 5px;
+}
+
 .card1{
     background-image: radial-gradient(#0084ff , #0e1229 );
     border-radius: 10%;
