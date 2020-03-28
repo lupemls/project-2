@@ -11,15 +11,15 @@ $(document).ready(function () {
     let round = 1;
     let srcChange;
     let currentOp;
+    let userData;
 
     const randoAdj = Math.floor(Math.random() * (playerAdj.length));
 
     //Will change the name and image to a users github name and github image, leaving it blank if they input a nonexistant account
     async function playerCall() {
-        const gitName = await getGit();
-        console.log('It actually says', gitName);
+        userData = await getUserData();
         $.ajax({
-            url: `https://api.github.com/users/${gitName}`,
+            url: `https://api.github.com/users/${userData.github}`,
             method: 'get'
         })
             .then(function (response1) {
@@ -29,13 +29,12 @@ $(document).ready(function () {
     };
 
     //retrieves the GitHub username that the user input when signing up
-    async function getGit() {
-        let gitName;
+    async function getUserData() {
         const gitData = await $.ajax({
             url: `/api/user_data`,
             method: 'get'
         })
-        return gitData.github;
+        return gitData;
     }
 
     playerCall()
@@ -66,24 +65,28 @@ $(document).ready(function () {
     };
 
     //increases win count on a win
-    function winIncrementOp(){
+    function winIncrementOp(id,user){
         $.ajax({
             url: '/api/winincrement',
-            data: {id: currentOp},
+            data: {
+                id: id,
+                user: user
+            },
             method: 'put'
         })
     };
 
     //increases loss count on a loss
-    function lossIncrementOp(){
+    function lossIncrementOp(id,user){
         $.ajax({
             url: '/api/lossincrement',
-            data: {id: currentOp},
+            data: {
+                id: id,
+                user, user
+            },
             method: 'put'
         })
     };
-
-
     
     function nudgeRight() {
         $('#opponentImg').animate({
@@ -108,7 +111,8 @@ $(document).ready(function () {
         $('#result').show()
         $('#result').text('WIN!');
 
-        lossIncrementOp()
+        lossIncrementOp(currentOp, 'opponent');
+        winIncrementOp(userData.id, 'user');
         $('#result').fadeOut(2000);
 
     };
@@ -117,7 +121,8 @@ $(document).ready(function () {
         $('#result').show()
         $('#result').text('LOSE!');
 
-        winIncrementOp()
+        winIncrementOp(currentOp, 'opponent');
+        lossIncrementOp(userData.id, 'user');
         $('#result').fadeOut(2000);
 
     };

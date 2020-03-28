@@ -21,7 +21,9 @@ module.exports = function(app) {
     db.User.create({
       username: req.body.username,
       password: req.body.password,
-      github: req.body.github
+      github: req.body.github,
+      wins: 0,
+      losses: 0
     })
       .then(function() {
         res.redirect(307, "/api/login");
@@ -61,17 +63,36 @@ module.exports = function(app) {
 
   app.put('/api/winincrement', function(req, res) {
     const currentOp = req.body.id;
-    console.log('testing', currentOp);
-
-    db.Opponent.increment('wins', { by: 1, where: { id: currentOp}});
+    if(req.body.user === 'opponent'){
+      db.Opponent.increment('wins', { by: 1, where: { id: currentOp}});
+    } else{
+      db.User.increment('wins', { by: 1, where: { id: currentOp}});    
+    }
     res.send('done')
   });
 
   app.put('/api/lossincrement', function(req, res) {
     const currentOp = req.body.id;
-    console.log('testing', currentOp);
-
-    db.Opponent.increment('losses', { by: 1, where: { id: currentOp}});
+    if(req.body.user === 'opponent'){
+      db.Opponent.increment('losses', { by: 1, where: { id: currentOp}});
+    } else{
+      db.User.increment('losses', { by: 1, where: { id: currentOp}});    
+    }
     res.send('done')
   });
+
+  app.put('/api/userwin', function(req, res) {
+    const currentUser = req.body.github
+
+    db.Opponent.increment('wins', { by: 1, where: { id: currentUser}});
+    res.send('done')
+  });
+
+  app.put('/api/userloss', function(req, res) {
+    const currentUser = req.body.github
+
+    db.Opponent.increment('losses', { by: 1, where: { github: currentUser}});
+    res.send('done')
+  });
+
 };

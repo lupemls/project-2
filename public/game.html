@@ -7,10 +7,17 @@
     <title>RPSC</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="./stylesheets/style.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Nosifer|Press+Start+2P&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="./stylesheets/style.css">
 </head>
 
 <body>
+
+
+
+<center><h1 class="titlee">RPS Kombat</h1></center>
 
     <div class="container">
         <div class="row">
@@ -20,7 +27,12 @@
         </div>
     </div>
 
+
+    
     <div id="wrapper" class="hidden">
+
+
+
         <div class="container">
             <div class="row">
                 <div class="col-6 justify-content-center">
@@ -28,9 +40,9 @@
                         <div class="card-body" id="playerChoice">
                             <h4 id="player"></h4>
                             <img src="" id="playerImg" class="player">
-                            <br>
-                            <label>Choose Your Weapon!</label>
-                            <br>
+                            <br><br>
+                            <b></b><h4 class="weaponname"><label>Choose Your Weapon!</label></h4></b>
+                            <br><br>
                             <div id="weapons">
                                
                                     <img src="images/Rock.jpg" alt="rock" class="weapon" id="rock">
@@ -44,7 +56,9 @@
                             </div>
                         </div>
                     </div>
-                    <button class="start" id="shoot">3 2 1 Shoot!</button>
+                
+                    <br>
+                    <button class="start" id="shoot">3..2..1.. Shoot!</button>
                     <h3><span id="result" style="color:red"></span></h3>
                 </div>
             
@@ -74,7 +88,10 @@
         </div>
     </div>
     
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   
 
     <script src="./js/logic.js"></script>
 
