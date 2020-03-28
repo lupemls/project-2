@@ -1,25 +1,23 @@
 {
   "development": {
-    "username": "root",
-    "password": "password",
-    "database": "rps_db",
-    "host": "127.0.0.1",
+    "username": "d2991da3wz71djgv",
+    "password": "d8c5h3ob8uphmkxx",
+    "database": "mbgqp0uqbo9rijgy",
+    "host": "dno6xji1n8fm828n.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
+    "username": "d2991da3wz71djgv",
+    "password": "d8c5h3ob8uphmkxx",
+    "database": "mbgqp0uqbo9rijgy",
+    "host": "dno6xji1n8fm828n.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql",    "operatorsAliases": false
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
+    "username": "d2991da3wz71djgv",
+    "password": "d8c5h3ob8uphmkxx",
+    "database": "mbgqp0uqbo9rijgy",
+    "host": "dno6xji1n8fm828n.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql",    "operatorsAliases": false
   }
 }
